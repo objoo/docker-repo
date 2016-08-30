@@ -1,3 +1,4 @@
+## This version is OK but may need some reorganisation later.
 FROM debian:testing
 MAINTAINER Yann Dupont <Yann@objoo.org>
 
@@ -62,5 +63,20 @@ RUN echo "Ciphers arcfour" >> /etc/ssh/sshd_config
 
 RUN apt install -y clang
 
-#ENTRYPOINT /usr/sbin/dropbear j -k -s -E -F
+## fix : libasound2 missing
+RUN apt install -y libasound2
+
+### Necessary for arm cross compilation
+
+RUN apt install -y gcc-arm-linux-gnueabihf 
+
+USER atom
+
+RUN echo [target.armv7-unknown-linux-gnueabihf] >>  ~/.cargo/config
+RUN echo linker = \"arm-linux-gnueabihf-gcc\" >>  ~/.cargo/config  
+## bash by default
+USER root
+
+RUN chsh atom -s /bin/bash
+
 ENTRYPOINT /usr/sbin/sshd -D
