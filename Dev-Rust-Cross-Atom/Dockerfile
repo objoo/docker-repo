@@ -77,6 +77,9 @@ RUN echo linker = \"arm-linux-gnueabihf-gcc\" >>  ~/.cargo/config
 ## bash by default
 USER root
 
+#Fix
+RUN apt install -y libxss1 libxkbfile1
+
 RUN chsh atom -s /bin/bash
 
 ENTRYPOINT /usr/sbin/sshd -D
