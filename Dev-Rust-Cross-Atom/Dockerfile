@@ -29,7 +29,8 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 RUN /home/atom/.cargo/bin/rustup target add x86_64-unknown-linux-musl
 RUN /home/atom/.cargo/bin/rustup target add armv7-unknown-linux-gnueabihf
-
+RUN /home/atom/.cargo/bin/rustup target add armv7-unknown-linux-musleabihf
+RUN /home/atom/.cargo/bin/rustup target add wasm32-unknown-emscripten
 
 ## lastest atom editor
 USER root
@@ -59,7 +60,7 @@ RUN chmod 0755 /var/run/sshd
 
 
 ## speeding up remote connexions
-RUN echo "Ciphers arcfour" >> /etc/ssh/sshd_config
+RUN echo "Ciphers aes128-gcm@openssh.com" >> /etc/ssh/sshd_config
 
 RUN apt install -y clang
 
