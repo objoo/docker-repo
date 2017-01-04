@@ -1,9 +1,11 @@
-This Dockerfile is here to provide an up-to-date environment for RUST, 
-with atom editor.
+This is a collection of Dockerfile able to provide an up-to-date environment for RUST, 
+with (optionally) atom editor and (optionally) cross compile tools.
 
-You need to run build.sh once (this is a long process).
-Next time , just launch run.sh and follow instructions.
+You need to run build.sh once per directory (this is a long process).
 
-Latest atom editor is available, together with latest stable rust compiler.
-rustup is also here and arm crosscompiler is available, together with X86-static musl compiler.
+order is Core
+then +Atom
+then +Cross
+
+Next time , just launch run.sh in directory and follow instructions.
 
