@@ -1,0 +1,1 @@
+Just an atempt to tests parallela 1024CPU soc emulator.
