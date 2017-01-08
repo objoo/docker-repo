@@ -23,20 +23,4 @@ RUN echo "atom:!Objoo!" | chpasswd
 ## latest Rust
 
 USER atom
-
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-
-USER root
-RUN apt install -y openssh-server
-EXPOSE 22
-
-RUN mkdir /var/run/sshd
-RUN chmod 0755 /var/run/sshd
-
-
-## speeding up remote connexions
-RUN echo "Ciphers aes128-gcm@openssh.com" >> /etc/ssh/sshd_config
-
-RUN chsh atom -s /bin/bash
-
-ENTRYPOINT /usr/sbin/sshd -D

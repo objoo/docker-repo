@@ -30,4 +30,15 @@ RUN apt install -y libxss1 libxkbfile1
 
 RUN chsh atom -s /bin/bash
 
+USER root
+RUN apt install -y openssh-server
+EXPOSE 22
+
+RUN mkdir /var/run/sshd
+RUN chmod 0755 /var/run/sshd
+
+
+## speeding up remote connexions
+RUN echo "Ciphers aes128-gcm@openssh.com" >> /etc/ssh/sshd_config
+
 ENTRYPOINT /usr/sbin/sshd -D
