@@ -1,1 +1,1 @@
-Just an atempt to tests parallela 1024CPU soc emulator.
+Just an attempt to tests Corrode (C to Rust Translator).
