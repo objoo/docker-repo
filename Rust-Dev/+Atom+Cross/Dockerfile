@@ -23,6 +23,7 @@ USER root
 RUN apt install -y gcc-arm-linux-gnueabihf 
 RUN apt install -y gcc-mips-linux-gnu
 RUN apt install -y gcc-mipsel-linux-gnu
+RUN apt install -y git
 USER atom
 
 RUN echo [target.armv7-unknown-linux-gnueabihf] >>  ~/.cargo/config

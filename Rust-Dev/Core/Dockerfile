@@ -3,7 +3,7 @@ FROM debian:testing
 MAINTAINER Yann Dupont <Yann@objoo.org>
 
 RUN apt update && apt dist-upgrade -y
-RUN apt install -y curl file sudo clang git
+RUN apt install -y curl file sudo clang 
 ENV http_proxy $http_proxy
 ENV https_proxy $http_proxy
 ENV ftp_proxy $http_proxy
